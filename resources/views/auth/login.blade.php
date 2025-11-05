@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="col-12 mt-3 text-center">
-                <a href="{{route('index')}}" class="btn btn-outline-primary">Listado de tareas registradas</a>
+                <a href="{{route('tareas.index')}}" class="btn btn-outline-primary">Listado de tareas registradas</a>
             </div>
         </div>
     </div>

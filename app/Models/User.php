@@ -19,6 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
+        'second_last_name',
         'email',
         'password',
     ];
@@ -45,4 +47,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function tareas(){
+        return $this->hasMany(Tarea::class,'usuario_id');
+    }
+
+    public function getCompleteNameAttribute(): string{
+        return $this->name.' '.$this->last_name.($this->second_last_name?' '.$this->second_last_name:'');
+    }
+
 }

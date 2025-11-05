@@ -1,0 +1,12 @@
+.estatus-borrador { color: #778cb0 !important; }
+.text-borrador { color: #778cb0; }
+.bg-borrador { background-color: #778cb0; }
+.estatus-pendiente { color: #00a9c6 !important; }
+.text-pendiente { color: #00a9c6; }
+.bg-pendiente { background-color: #00a9c6; }
+.estatus-en curso { color: #F0E68C !important; }
+.text-en curso { color: #F0E68C; }
+.bg-en curso { background-color: #F0E68C; }
+.estatus-concluida { color: #CD5C5C !important; }
+.text-concluida { color: #CD5C5C; }
+.bg-concluida { background-color: #CD5C5C; }

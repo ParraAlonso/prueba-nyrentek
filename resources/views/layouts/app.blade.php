@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="stylesheet" href="{{asset('css/colores.css?v='.time())}}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -68,7 +69,13 @@
             </div>
         </nav>
 
-        <main class="py-4 mt-4">
+        <main class="py-4 mt-2">
+            <div class="container">
+                <div class="row justify-content-between">
+                    @yield('breadcrumbs')
+                </div>
+                @include('layouts.alerts')
+            </div>
             @yield('content')
         </main>
 

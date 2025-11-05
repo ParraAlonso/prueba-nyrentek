@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/tareas';
 
     /**
      * Create a new controller instance.
@@ -50,8 +53,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'second_last_name' => ['nullable','string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
         ]);
     }
 
@@ -65,8 +69,32 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'last_name' => $data['last_name'],
+            'second_last_name' => $data['second_last_name'],
+            'email' => $data['email']
         ]);
+    }
+
+
+    //Se sobreescribe la función register() de RegistersUsers para manejar el registro del usuario
+    public function register(Request $request)
+    {
+        //Validar la información
+        $this->validator($request->all())->validate();
+        //Creación del usuario
+        $user = $this->create($request->all());
+        //Generar el token de restablecimiento de contraseña
+        $token = Password::broker()->createToken($user);
+        //Enlace de restablecimiento
+        $url = url(route('password.reset', ['token' => $token, 'email' => $user->email], false));
+        try {
+            //Envío de enlace para establecimiento de nueva contraseña
+            $user->notify(new \App\Notifications\CustomResetPassword($url));
+            return redirect()->route('login')->with('success', "Usuario creado correctamente, para completar tu registro revisa la bandeja de entrada de tu correo electrónico.");
+        }catch (\Exception $exception){
+            Log::error($exception->getMessage());
+            return redirect()->back()->with('error', "Ocurrió un problema, por favor intente nuevamente.")->withInput();
+        }
+
     }
 }
