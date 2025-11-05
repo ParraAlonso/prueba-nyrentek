@@ -1,8 +1,15 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// Fuente Montserrat
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    src: url("../../public/fonts/montserrat.woff2") format('woff2');
+}
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+//Layout
+@import 'layout';

@@ -1,12 +1,16 @@
 {
+  "public/fonts/montserrat.woff2": {
+    "file": "assets/montserrat-AeMhpAKq.woff2",
+    "src": "public/fonts/montserrat.woff2"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-Cj6ktIgB.js",
+    "file": "assets/app-5aXBAoDQ.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-CpEEPCb_.css",
+    "file": "assets/app-Bg7RewLe.css",
     "src": "resources/sass/app.scss",
     "isEntry": true,
     "name": "app",

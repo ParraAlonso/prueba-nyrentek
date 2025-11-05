@@ -14,6 +14,11 @@ return [
     |
     */
 
+    //Api key de pexels
+    'pexels'=>[
+        'api_key' => env('PEXELS_API_KEY'),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],

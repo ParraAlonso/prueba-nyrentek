@@ -1,0 +1,29 @@
+#app{
+    min-height: 95vh;
+}
+#loginRow{
+    min-height: 60vh;
+}
+.form-label{
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.tooltip-inner {
+    max-width: 400px !important;
+}
+input[readonly],select[readonly],textarea[readonly]{
+    background-color: var(--bs-secondary-bg) !important;
+    opacity: 1;
+}
+.was-validated .form-control:valid, .form-control.is-valid{
+    background: none;
+    border-color: var(--bs-border-color);
+}
+.was-validated .form-select:valid, .form-select.is-valid{
+    --bs-form-select-bg-icon: none !important;
+    border-color: var(--bs-border-color);
+}
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label{
+    color: var(--bs-body-color);
+}
