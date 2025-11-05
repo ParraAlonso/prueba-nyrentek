@@ -3,6 +3,12 @@
 
 Proyecto de Laravel 12, Bootstrap UI.
 
+
+## DEMO
+prueba-nyrentek.alonsoparra.mx
+- Al registrarse, deberás revisar tu bandeja de correos. Si no encuentras el correo en la bandeja principal, es posible que haya llegado a SPAM o no deseados.
+*Importante ya que el establecimiento de contraseña se realiza a través del enlace recibido.*
+
 ## Requisitos previos
 Es importante asegúrarse de tener instalado el siguiente stack:
 - PHP 8.1+ (Versión recomendada: 8.3)
@@ -43,6 +49,7 @@ En caso de utilizar SQLITE, se pueden comentar todas las variables a excepción 
 	DB_PASSWORD="CONTRASEÑA_USUARIO_BASE_DE_DATOS"
 
 #### 3.4. Establecer API_KEY de Pexels.com
+*Pexels es una plataforma libre de imagenes, decidí incluir pexels para comprobar experiencia en consumo de API, es completamente opcional su configuración.*
 Es importante establecer la API_KEY de Pexels, de no establecerla se limitará la funcionalidad de la aplicación ya que se utiliza la API de Pexels para obetener imágenes y guardarlas en la base de datos.
 
 	PEXELS_API_KEY="API_KEY"
@@ -79,3 +86,5 @@ Para iniciar el servidor de desarrollo de laravel, ejecute el siguiente comando:
   php artisan serve
 ```
 El proyecto estará disponible en http://127.0.0.1:8000.
+
+

@@ -25,13 +25,13 @@ class EstatusSeeder extends Seeder
         $cssContent = '';
 
         foreach ($arr_estatus as $estatus=>$color) {
-            Estatus::create([
+            Estatus::updateOrCreate([
                 'codigo' => Str::slug($estatus),
                 'nombre' => ucfirst($estatus)
             ]);
-            $cssContent .= ".estatus-{$estatus} { color: {$color} !important; }" . PHP_EOL;
-            $cssContent .= ".text-{$estatus} { color: {$color}; }" . PHP_EOL;
-            $cssContent .= ".bg-{$estatus} { background-color: {$color}; }" . PHP_EOL;
+            $cssContent .= ".estatus-".Str::slug($estatus)." { color: {$color} !important; }" . PHP_EOL;
+            $cssContent .= ".text-".Str::slug($estatus)." { color: {$color}; }" . PHP_EOL;
+            $cssContent .= ".bg-".Str::slug($estatus)." { background-color: {$color}; }" . PHP_EOL;
         }
 
         //Valida que no exista el directorio publi/css

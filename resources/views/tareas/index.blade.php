@@ -27,6 +27,9 @@
                                     <p class="mb-1">
                                         <span class="badge p-1 bg-{{$tarea->estatus->codigo}}">{{$tarea->estatus->nombre}}</span>
                                     </p>
+                                    <p class="mb-1 text-muted">
+                                        {{$tarea->usuario->completeName}}
+                                    </p>
                                 </div>
                                 <div class="col">
                                     <img src="{{asset('storage/'.$tarea->imagenes->first()->ruta_archivo)}}" class="img-thumbnail" >
